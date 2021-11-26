@@ -1,0 +1,12 @@
+{
+    "link": "http://localhost:",
+    "port": 3000,
+    "db":{
+        "host": "localhost",
+        "database": "nodejs_pokemons_api",
+        "user": "root",
+        "password": "",
+        "dialect": "mariadb",
+        "timezone": "Etc/GMT-2"
+    }
+}

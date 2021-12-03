@@ -27,12 +27,19 @@ const initDb = () => {
         types: pokemon.types
       })
       .then(pokemon => console.log(pokemon.toJSON()))
+      .catch(error =>{
+        const message = "Pokemons Loaded"
+        res.status(500).json({message, data: error})
+      })
     })
 
     bcrypt.hash('mdp123',10)
     .then(hash => User.create({ username: 'Zakaria', password: hash}))
     .then(user => console.log(user.toJSON()))
-
+    .catch(error =>{
+      const message = "Hash Loaded"
+      res.status(500).json({message, data: error})
+    })
     console.log('La base de donnée a bien été initialisée !')
   })
 }

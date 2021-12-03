@@ -3,8 +3,6 @@ const bodyParser = require('body-parser')
 const favicon = require('serve-favicon')
 const sequelize = require('./src/db/sequelize')
 
-const port = 8080 || process.env.PORT
-
 let sequelize 
 
 if (process.env.NODE_ENV === 'production') {
@@ -36,7 +34,7 @@ app
 sequelize.initDb()
 
 app.get('/', (req, res) => {
-    res.json('Heroku test 😂')
+    console.log('Hello')
 })
 
 require('./src/routes/findAllPokemons')(app)
@@ -52,4 +50,4 @@ app.use((res) =>{
 })
 
 console.log(process.env.PORT)
-app.listen(port, ()=> console.log('@@@ http://localhost:'+ port)) 
+app.listen(process.env.PORT || 3000), ()=> console.log('@@@ http://localhost:'+ port)

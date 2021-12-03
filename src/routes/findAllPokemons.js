@@ -19,7 +19,7 @@ module.exports = (app) => {
           },
           order: ['name'],
           limit: limit
-        })
+      })
 
     .then(({count, rows}) => {
       if(name.length < 2 ){

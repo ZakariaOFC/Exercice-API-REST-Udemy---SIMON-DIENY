@@ -3,8 +3,29 @@ const bodyParser = require('body-parser')
 const favicon = require('serve-favicon')
 const sequelize = require('./src/db/sequelize')
 
-const config = require('./assets/config.json')
 const port = 8080 || process.env.PORT
+
+let sequelize 
+
+if (process.env.NODE_ENV === 'production') {
+    const sequelize = new sequelize('cufs4qcz31ly0umz', 'mtdc1xciugdmfr4t', 'vqgqdk1r80hytgtf', { 
+        host : 'uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        dialect: 'mariadb',
+        dialectOptions: {
+            timezone: "Etc/GMT-2"
+        },
+        logging: true
+    }) 
+} else {
+    const sequelize = new sequelize('nodejs_pokemons_api', 'root', '', { 
+        host : 'localhost',
+        dialect: 'mariadb',
+        dialectOptions: {
+            timezone: "Etc/GMT-2"
+        },
+        logging: false
+    }) 
+}
 
 const app = express()
 

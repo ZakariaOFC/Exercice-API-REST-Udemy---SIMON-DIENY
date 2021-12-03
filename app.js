@@ -14,7 +14,7 @@ app
 sequelize.initDb()
 
 app.get('/', (req, res) => {
-    console.log('Hello')
+    return res.json(console.log('Hello 🙃'))
 })
 
 require('./src/routes/findAllPokemons')(app)

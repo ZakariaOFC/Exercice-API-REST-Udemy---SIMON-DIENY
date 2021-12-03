@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const favicon = require('serve-favicon')
 const sequelize = require('./src/db/sequelize')
 
-const port = 8080 || process.env.PORT
+const port = process.env.PORT
 
 const app = express()
 
@@ -30,4 +30,4 @@ app.use((res) =>{
 })
 
 console.log(process.env.PORT)
-app.listen(port, ()=> console.log('@@@ http://localhost:'+ port)) 
+app.listen(port, ()=> console.log('Connected : ✔️')) 

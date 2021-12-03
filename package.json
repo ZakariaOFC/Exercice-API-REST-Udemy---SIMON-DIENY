@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set NODE_ENV=production & node app.js"
   },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

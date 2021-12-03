@@ -1,6 +1,5 @@
 {
     "link": "http://localhost:",
-    "port": 3000,
     "db":{
         "host": "localhost",
         "database": "nodejs_pokemons_api",

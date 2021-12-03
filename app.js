@@ -1,14 +1,12 @@
 const express = require('express')
-const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const favicon = require('serve-favicon')
 const sequelize = require('./src/db/sequelize')
 
 const config = require('./assets/config.json')
-
+const port = 8080 || process.env.PORT
 
 const app = express()
-
 
 app
     .use(favicon(__dirname + '/favicon.ico'))
@@ -16,6 +14,12 @@ app
     .use(bodyParser.json())
 
 sequelize.initDb()
+
+app.get('/', (req, res) => {
+    res.json('Heroku test 😂')
+})
+
+console.log(process.env.PORT)
 
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
@@ -29,4 +33,4 @@ app.use((res) =>{
     res.status(404).json(message)
 })
 
-app.listen(config.port, ()=> console.log('@@@ http://localhost:'+ config.port)) 
+app.listen(port, ()=> console.log('@@@ http://localhost:'+ port)) 

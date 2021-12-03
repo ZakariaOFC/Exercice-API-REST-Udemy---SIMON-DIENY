@@ -8,7 +8,7 @@
     "start": "set NODE_ENV=production & node app.js"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL"
+    "use_env_variable": "Jawsdb_url"
   },
   "author": "",
   "license": "ISC",

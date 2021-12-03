@@ -10,7 +10,6 @@ const app = express()
 
 app
     .use(favicon(__dirname + '/favicon.ico'))
-    .use(morgan('dev'))
     .use(bodyParser.json())
 
 sequelize.initDb()
